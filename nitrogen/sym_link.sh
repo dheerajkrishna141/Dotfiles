@@ -1,0 +1,1 @@
+/home/kratosfury/Dotfiles/sym_link.sh
