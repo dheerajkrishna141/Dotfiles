@@ -230,8 +230,7 @@ gaps inner 8
 # Set window borders to plain borders
 for_window [class="^.*"] border pixel 2
 
-exec_always --no-startup-id nitrogen --restore
-exec exec brave-browser
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Background_images/bg.jpg 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id "pkill greenclip; ~/.local/bin/greenclip daemon"
 # Dual monitor setup
