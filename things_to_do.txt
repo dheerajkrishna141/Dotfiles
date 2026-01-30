@@ -1,0 +1,10 @@
+Nvim todo list:
+Add shortcut to add files to gitignore.
+Fix the issue where the error messages is not shown in a floating window.
+Add shortcuts for time tracking.
+Add a grammar checker plugin.
+
+
+i3 todo list:
+Add a file manager.
+
