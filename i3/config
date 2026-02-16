@@ -25,8 +25,6 @@ exec --no-startup-id picom
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -241,3 +239,5 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id "pkill greenclip; ~/.local/bin/greenclip daemon"
 # Dual monitor setup
 exec_always --no-startup-id ~/.screenlayout/dual_monitor.sh
+
+exec_always --no-startup-id ~/Dotfiles/scripts/keep_awake.sh
