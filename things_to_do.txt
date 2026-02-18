@@ -6,5 +6,6 @@ Add a grammar checker plugin.
 
 
 i3 todo list:
-Add a file manager.
+Add a file manager. -- done
+Add battery cap at 80% to prevent battery degradation.
 
