@@ -28,7 +28,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i Pictures/Background_images/lock_screen_1_scaled.png --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- /home/kratosfury/Dotfiles/scripts/lock.sh --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -232,7 +232,7 @@ gaps inner 8
 for_window [class="^.*"] border pixel 2
 
 # Lock screen
-bindsym $mod+Shift+x exec --no-startup-id i3lock -i /home/kratosfury/Pictures/Background_images/lock_screen_1_scaled.png -c 1A2033
+bindsym $mod+Shift+x exec --no-startup-id "~/Dotfiles/scripts/lock.sh"
 
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Background_images/bg.jpg 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
@@ -245,8 +245,7 @@ exec_always --no-startup-id autorandr --change
 exec_always --no-startup-id ~/Dotfiles/scripts/keep_awake.sh
 
 exec_always --no-startup-id "pkill xautolock; xautolock -time 10 \
-    -locker '/home/kratosfury/Dotfiles/scripts/power_manager.sh' \
+    -locker '/home/kratosfury/Dotfiles/scripts/lock.sh' \
     -killtime 15 \
     -killer 'systemctl suspend'"
 
-exec_always --no-startup-id xset dpms 0 0 0
