@@ -1,0 +1,10 @@
+#!/bin/bash
+
+IMAGE="/home/kratosfury/Pictures/Background_images/lock_screen_1_scaled.png" 
+LOCK_IMG="/tmp/current_lock.png"
+
+# Get the new dimensions after autorandr changes the layout
+RES=$(xdpyinfo | grep dimensions | awk '{print $2}')
+
+# Generate the lock screen image quietly in the background
+convert "$IMAGE" -resize "$RES^" -gravity center -extent "$RES" "$LOCK_IMG"
