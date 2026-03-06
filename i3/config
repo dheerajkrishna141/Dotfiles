@@ -137,13 +137,17 @@ set $ws9 "9"
 set $ws10 "10"
 
 # External Monitor configuration
-set $SCEP HDMI-A-0
+set $SCEP HDMI-A-1
 set $LAPTOP eDP
-workspace $ws1 output $LAPTOP
-workspace $ws2 output $SCEP $eDP
-workspace $ws3 output $LAPTOP
-workspace $ws4 output $LAPTOP
-workspace $ws5 output $LAPTOP
+workspace $ws1 output $SCEP $LAPTOP
+workspace $ws2 output $SCEP $LAPTOP
+workspace $ws3 output $SCEP $LAPTOP
+workspace $ws4 output $SCEP $LAPTOP
+workspace $ws5 output $SCEP $LAPTOP
+workspace $ws6 output $LAPTOP $SCEP
+workspace $ws7 output $LAPTOP $SCEP
+workspace $ws8 output $LAPTOP $SCEP
+workspace $ws9 output $LAPTOP $SCEP
 # workspace 6 output $SCEP
 # workspace 7 output $SCEP
 # workspace 8 output $SCEP
