@@ -137,7 +137,7 @@ set $ws9 "9"
 set $ws10 "10"
 
 # External Monitor configuration
-set $SCEP HDMI-A-1
+set $SCEP HDMI-A-0
 set $LAPTOP eDP
 workspace $ws1 output $SCEP $LAPTOP
 workspace $ws2 output $SCEP $LAPTOP
@@ -234,6 +234,11 @@ gaps outer 1
 gaps inner 8
 # Set window borders to plain borders
 for_window [class="^.*"] border pixel 2
+
+# Turn focused monitor on/off
+bindsym $mod+Shift+minus exec --no-startup-id "~/Dotfiles/scripts/turn_off_focused.sh"
+
+bindsym $mod+Shift+plus exec --no-startup-id "xrandr | grep ' connected' | cut -f1 -d' ' | xargs -I {} xrandr --output {} --brightness 1"
 
 # Lock screen
 bindsym $mod+Shift+x exec --no-startup-id "~/Dotfiles/scripts/lock.sh"
