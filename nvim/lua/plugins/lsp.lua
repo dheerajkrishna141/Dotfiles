@@ -88,7 +88,7 @@ return {
                 vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
                 vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
                 vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-                vim.keymap.set("n", "<leader>co", function()
+                vim.keymap.set("n", "<leader>oo", function()
                     vim.lsp.buf.code_action({
                         apply = true,
                         context = {
@@ -121,7 +121,10 @@ return {
                     if server_name == "jdtls" then
                         return
                     end -- avoid starting with {}
-                    vim.lsp.config[server_name].setup({})
+                    if server_name == "harper_ls" then
+                        return
+                    end -- handled separately
+                    require("lspconfig")[server_name].setup({})
                 end,
 
                 lua_ls = function()
@@ -137,6 +140,40 @@ return {
                                 workspace = {
                                     library = { vim.env.VIMRUNTIME },
                                 },
+                            },
+                        },
+                    })
+                end,
+
+                harper_ls = function()
+                    require("lspconfig").harper_ls.setup({
+                        settings = {
+                            ["harper-ls"] = {
+                                linters = {
+                                    SpellCheck = true,
+                                    SpelledNumbers = false,
+                                    AnA = true,
+                                    SentenceCapitalization = true,
+                                    UnclosedQuotes = true,
+                                    WrongQuotes = false,
+                                    LongSentences = false,
+                                    RepeatedWords = true,
+                                    Spaces = true,
+                                    Matcher = true,
+                                    CorrectNumberSuffix = true,
+                                },
+                                codeActions = {
+                                    ForceStable = false,
+                                },
+                                markdown = {
+                                    IgnoreLinkTitle = false,
+                                },
+                                diagnosticSeverity = "hint",
+                                isolateEnglish = false,
+                                dialect = "American",
+                                maxFileLength = 120000,
+                                ignoredLintsPath = "",
+                                excludePatterns = {},
                             },
                         },
                     })
