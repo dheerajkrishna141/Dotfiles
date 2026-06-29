@@ -57,7 +57,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ghostty 
 
 # kill focused window
 bindsym $mod+q kill
@@ -106,7 +106,6 @@ bindsym $mod+v exec --no-startup-id ~/.config/rofi/clipboard/clipboard.sh
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -243,13 +242,23 @@ bindsym $mod+Shift+plus exec --no-startup-id "xrandr | grep ' connected' | cut -
 # Lock screen
 bindsym $mod+Shift+x exec --no-startup-id "~/Dotfiles/scripts/lock.sh"
 
+# Screenshot: select area and copy to clipboard
+bindsym Print exec --no-startup-id "flameshot gui --clipboard"
+
 bindsym $mod+b exec --no-startup-id "google-chrome --profile-directory=Default"
+
+bindsym $mod+m exec --no-startup-id "vlc"
+
+bindsym $mod+s exec --no-startup-id "spotify"
+
+bindsym $mod+Shift+s exec --no-startup-id "systemctl suspend"
 
 bindsym $mod+Shift+b exec --no-startup-id "google-chrome --profile-directory=Profile\ 1"
 
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Background_images/bg.jpg 
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Background_images/background_ideal.png 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id "pkill greenclip; ~/.local/bin/greenclip daemon"
+exec_always --no-startup-id "xmodmap ~/.config/.Xmodmap"
 
 # Autorandr for automatic monitor configuration
 exec_always --no-startup-id autorandr --change

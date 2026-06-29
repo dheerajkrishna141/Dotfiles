@@ -15,3 +15,6 @@ vim.keymap.set("n", "<leader>cp", function()
         print("Copilot enabled")
     end
 end, { desc = "Toggle Copilot" })
+
+vim.keymap.set("n", "<leader>tt", "<cmd>!tt-start<CR>", { desc = "Tracking Time" })
+vim.keymap.set("n", "<leader>ts", "<cmd>!tt-stop<CR>", { desc = "Stopped Tracking" })
