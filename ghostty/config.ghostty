@@ -2,6 +2,7 @@
 font-family = JetBrainsMono Nerd Font
 font-style = Regular
 
+confirm-close-surface = false
 # Window
 background-opacity = 0.519
 window-padding-x = 3
